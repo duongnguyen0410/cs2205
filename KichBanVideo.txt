@@ -1,7 +1,7 @@
 KỊCH BẢN THUYẾT TRÌNH CS2205
 Nguyễn Xuân Dương — 26848050
 Mục tiêu: dưới 5 phút. Cần đọc thử và bấm giờ trước khi quay.
-Ước lượng: khoảng 545 từ cách nhau bởi dấu cách trong phần nói, tương đương khoảng 4 phút đến 4 phút 40 giây nếu đọc vừa phải. Chưa đọc thành tiếng, nên chưa chốt thời lượng.
+Ước lượng: khoảng 570 từ cách nhau bởi dấu cách trong phần nói, tương đương khoảng 4 phút 15 giây đến 4 phút 50 giây nếu đọc vừa phải. Chưa đọc thành tiếng, nên chưa chốt thời lượng.
 
 SLIDE 1
 Kính chào thầy. Tôi xin trình bày đề cương nghiên cứu về trích xuất thông tin hóa đơn có bố cục chưa gặp. Đề tài sử dụng mô hình hiểu tài liệu đa phương thức, hướng đến chuẩn bị dữ liệu cho hệ thống TIPA 3-Ways Matching.
@@ -10,13 +10,13 @@ SLIDE 2
 Nghiên cứu nhận ảnh trang PDF và tạo các trường thông tin có vị trí bằng chứng. Đây là đề cương, chưa có kết quả thực nghiệm. Các liên kết tài liệu và video sẽ được ghi tại trang thông tin này.
 
 SLIDE 3
-Sơ đồ bên phải minh họa cấu trúc một hóa đơn, tham khảo cách tổ chức thông tin của DocILE. Đề tài tập trung vào số hóa đơn, ngày lập và tổng tiền. Dòng hàng được thể hiện để phân biệt phần nằm ngoài phạm vi đánh giá.
+Hình bên phải trích từ Hình 1 trong bài báo DocILE năm 2023. Các ô tô màu thể hiện chú thích trường thông tin và vị trí trên hóa đơn. Đề tài tập trung đánh giá số hóa đơn, ngày lập và tổng tiền. Phần nhận dạng dòng hàng trong hình nằm ngoài phạm vi nghiên cứu này.
 
 SLIDE 4
 Có ba mục tiêu. Một là xây dựng quy trình đánh giá theo mức độ quen thuộc của bố cục. Hai là đo chênh lệch mô hình và mức suy giảm khi ảnh thay đổi. Ba là phân tích lỗi và đề xuất đầu ra có bằng chứng. Câu hỏi trọng tâm là chất lượng ảnh suy giảm có gây khó khăn lớn hơn trên bố cục chưa gặp hay không.
 
 SLIDE 5
-Sơ đồ dựa trên kiến trúc LayoutLMv3 của Huang và cộng sự, năm 2022. LayoutLMv3 nhận ảnh trang, văn bản OCR và vị trí hai chiều; RoBERTa chỉ nhận văn bản OCR. Tôi sử dụng các checkpoint DocILE đã công bố và giữ nguyên trọng số trong quá trình đánh giá. Hình đang minh họa luồng suy luận để tạo dự đoán trường thông tin.
+Hình 3 của Huang và cộng sự minh họa kiến trúc và tiền huấn luyện LayoutLMv3. Văn bản OCR, vị trí hai chiều và các mảnh ảnh được đưa vào Transformer đa phương thức. Các đầu ra MLM, MIM và WPA phía trên là mục tiêu tiền huấn luyện của bài báo. Đề cương này đánh giá các checkpoint DocILE đã công bố, giữ nguyên trọng số để dự đoán trường thông tin; RoBERTa chỉ sử dụng văn bản OCR.
 
 SLIDE 6
 Sơ đồ là thiết kế thực nghiệm đề xuất, chưa có điểm số. Cùng một tài liệu đi qua ảnh gốc, ảnh mờ Gaussian và ảnh giảm độ phân giải. Nhánh A giữ OCR gốc; khi văn bản không đổi, RoBERTa phải cho cùng dự đoán. Nhánh B chạy lại DocTR cố định. Không trộn A và B trong một cặp so sánh. Sau đó đánh giá theo nhóm bố cục không mẫu, một đến ba mẫu, và từ bốn mẫu huấn luyện. Val chính thức là đánh giá mô tả, chưa phải test độc lập.

@@ -24,7 +24,7 @@ Evaluating Multimodal Deep Learning for Information Extraction from Invoices wit
 
 [Kịch bản video theo 9 slide](KichBanVideo.txt). Cần đọc thử và bấm giờ để bảo đảm video không quá 5 phút.
 
-Sơ đồ trên slide là hình chỉnh sửa được, tham khảo [LayoutLMv3](https://doi.org/10.1145/3503161.3548112) và [DocILE](https://arxiv.org/abs/2302.05658); không tái bản hình trong bài báo.
+Slide 3 dùng panel trái của Hình 1 DocILE, Šimsa và cộng sự (2023), [nguồn](https://arxiv.org/html/2302.05658v2), thu nhỏ đúng tỉ lệ. Slide 5 dùng toàn bộ Hình 3 LayoutLMv3, Huang và cộng sự (2022), [nguồn](https://arxiv.org/html/2204.08387v3), thu nhỏ đúng tỉ lệ, theo [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). Slide 6 và 8 vẫn là sơ đồ tự vẽ.
 
 ## Phương pháp dự kiến
 
