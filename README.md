@@ -12,7 +12,17 @@ Evaluating Multimodal Deep Learning for Information Extraction from Invoices wit
 
 ## Trạng thái
 
-Đang hoàn thiện đề cương, slide và poster theo mẫu môn học. Các file PDF và video sẽ được bổ sung sau khi kiểm tra. Đây là kế hoạch nghiên cứu; chưa có kết quả thực nghiệm của đề tài.
+Đã có bản đề cương 5 trang (gồm trang thông tin), 9 slide và poster A3 dọc theo mẫu môn học. Còn bổ sung ảnh cá nhân, video YouTube và hoàn tất bước nộp Classroom. Đây là kế hoạch nghiên cứu; chưa có kết quả thực nghiệm của đề tài.
+
+## Tài liệu
+
+| Tài liệu | PDF | Bản Google |
+| --- | --- | --- |
+| Đề cương | [CS2205.DeCuong.pdf](CS2205.DeCuong.pdf) | [Google Docs](https://docs.google.com/document/d/1WnFf4SAejPqYltruMU51x1uZtL8euG0ALZFIhETykxE/edit) |
+| Thuyết trình | [CS2205.Slide.pdf](CS2205.Slide.pdf) | [Google Slides](https://docs.google.com/presentation/d/1TN0B9FNN4McuKkSjm35u-gw2U5DRVeZAClajPaJVJ_U/edit) |
+| Poster | [CS2205.Poster.pdf](CS2205.Poster.pdf) | [Google Slides](https://docs.google.com/presentation/d/159lwOmHgG-HgZNTs42EH_rlmtl-m6WjNh3qDIhPxeRk/edit) |
+
+[Kịch bản video theo 9 slide](KichBanVideo.txt). Cần đọc thử và bấm giờ để bảo đảm video không quá 5 phút.
 
 ## Phương pháp dự kiến
 

@@ -1,0 +1,30 @@
+KỊCH BẢN THUYẾT TRÌNH CS2205
+Nguyễn Xuân Dương — 26848050
+Mục tiêu: dưới 5 phút. Cần đọc thử và bấm giờ trước khi quay.
+
+SLIDE 1
+Kính chào thầy. Tôi xin trình bày đề cương nghiên cứu về trích xuất thông tin hóa đơn có bố cục chưa gặp. Đề tài sử dụng mô hình hiểu tài liệu đa phương thức, hướng đến chuẩn bị dữ liệu cho hệ thống TIPA 3-Ways Matching.
+
+SLIDE 2
+Nghiên cứu nhận ảnh trang PDF và tạo các trường thông tin có vị trí bằng chứng. Đây là đề cương, chưa có kết quả thực nghiệm. Các liên kết tài liệu và video sẽ được ghi tại trang thông tin này.
+
+SLIDE 3
+Trong thực tế, hóa đơn từ các nhà cung cấp có cách trình bày khác nhau. Một trường có thể nằm ở đầu trang hoặc cạnh một vùng thông tin khác. Chất lượng scan cũng thay đổi. Nếu trích xuất sai, bước đối chiếu chứng từ có thể nhận dữ liệu sai. Vì vậy, nghiên cứu quan tâm cả giá trị và vùng xuất hiện của giá trị.
+
+SLIDE 4
+Có ba mục tiêu. Một là xây dựng quy trình đánh giá theo mức độ quen thuộc của bố cục. Hai là đo chênh lệch mô hình và mức suy giảm khi ảnh thay đổi. Ba là phân tích lỗi và đề xuất đầu ra có bằng chứng. Câu hỏi trọng tâm là chất lượng ảnh suy giảm có gây khó khăn lớn hơn trên bố cục chưa gặp hay không.
+
+SLIDE 5
+RoBERTa là đối chứng chỉ đọc văn bản OCR. LayoutLMv3 sử dụng thêm vị trí và ảnh trang. Nghiên cứu tái sử dụng checkpoint của DocILE để tránh tiền huấn luyện tốn kém. Khi so sánh, đầu ra OCR và hậu xử lý được giữ nhất quán. Do tiền huấn luyện khác nhau, chênh lệch giữa hai mô hình được hiểu ở cấp hệ thống, chưa quy riêng cho nhánh ảnh.
+
+SLIDE 6
+Mỗi trang được đánh giá theo nhóm bố cục chưa gặp, ít gặp hoặc đã gặp. Từ ảnh gốc, tạo ảnh mờ và giảm độ phân giải, giữ nguyên hình học. Hai chế độ được tách riêng. A giữ OCR gốc để khảo sát nhánh ảnh; RoBERTa phải cho cùng dự đoán. B chạy lại DocTR với cùng cấu hình cho cả ảnh gốc và ảnh biến đổi, nhằm đo ảnh hưởng toàn chuỗi. Không trộn hai nguồn OCR trong cùng một cặp so sánh.
+
+SLIDE 7
+Chỉ số chính là AP định vị theo bộ đánh giá DocILE, bổ sung F1 và độ khớp giá trị văn bản. Tôi sẽ tính mức suy giảm so với ảnh gốc trong từng nhóm bố cục và khoảng tin cậy theo cụm. Các phép biến đổi và hậu xử lý được chốt trên dev nội bộ. Vì dùng checkpoint công bố, val được dùng đánh giá mô tả, chưa phải test độc lập. Dữ liệu tiếng Anh chưa cho phép kết luận trực tiếp về hóa đơn tiếng Việt.
+
+SLIDE 8
+Sản phẩm dự kiến gồm quy trình có thể chạy lại, bảng đánh giá và các trường hợp lỗi. Giá trị đầu ra đi kèm vị trí bằng chứng và trạng thái cần kiểm tra. Nghiên cứu không đặt trước phần trăm cải thiện. Kết quả sẽ giúp lựa chọn phương án cho bước đọc chứng từ trước matching. Ghép dòng hàng và đối chiếu ba bên nằm ngoài phạm vi.
+
+SLIDE 9
+Đề cương sử dụng LayoutLMv3 và DocILE làm nền, với RoDLA trong nghiên cứu liên quan. Xin cảm ơn thầy đã theo dõi.
