@@ -24,6 +24,8 @@ Evaluating Multimodal Deep Learning for Information Extraction from Invoices wit
 
 [Kịch bản video theo 9 slide](KichBanVideo.txt). Cần đọc thử và bấm giờ để bảo đảm video không quá 5 phút.
 
+Sơ đồ trên slide là hình chỉnh sửa được, tham khảo [LayoutLMv3](https://doi.org/10.1145/3503161.3548112) và [DocILE](https://arxiv.org/abs/2302.05658); không tái bản hình trong bài báo.
+
 ## Phương pháp dự kiến
 
 So sánh checkpoint tác vụ RoBERTa và LayoutLMv3 do DocILE phát hành trên các nhóm bố cục có mức độ xuất hiện khác nhau trong tập huấn luyện. Khảo sát thêm ảnh mờ và ảnh giảm độ phân giải với hai chế độ: giữ nguyên OCR và chạy lại cùng một OCR trên cả ảnh gốc lẫn ảnh biến đổi. Đánh giá định vị trường bằng AP, bổ sung F1 và độ khớp văn bản. Chênh lệch giữa kiến trúc được diễn giải ở cấp hệ thống, không quy riêng cho đặc trưng thị giác.
