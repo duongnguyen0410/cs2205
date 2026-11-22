@@ -1,31 +1,34 @@
 KỊCH BẢN THUYẾT TRÌNH CS2205
 Nguyễn Xuân Dương — 26848050
 Mục tiêu: dưới 5 phút. Cần đọc thử và bấm giờ trước khi quay.
-Ước lượng: khoảng 570 từ cách nhau bởi dấu cách trong phần nói, tương đương khoảng 4 phút 15 giây đến 4 phút 50 giây nếu đọc vừa phải. Chưa đọc thành tiếng, nên chưa chốt thời lượng.
+Bản này khớp 10 slide đã duyệt. Chưa đọc thành tiếng.
 
 SLIDE 1
-Kính chào thầy. Tôi xin trình bày đề cương nghiên cứu về trích xuất thông tin hóa đơn có bố cục chưa gặp. Đề tài sử dụng mô hình hiểu tài liệu đa phương thức, hướng đến chuẩn bị dữ liệu cho hệ thống TIPA 3-Ways Matching.
+Kính chào thầy. Tôi xin trình bày đề cương về trích xuất thông tin trên chứng từ dạng hóa đơn có bố cục chưa gặp. Đề tài dùng checkpoint đã công bố, để chuẩn bị dữ liệu cho TIPA. Đây là kế hoạch nghiên cứu, chưa có kết quả đo.
 
 SLIDE 2
-Nghiên cứu nhận ảnh trang PDF và tạo các trường thông tin có vị trí bằng chứng. Đây là đề cương, chưa có kết quả thực nghiệm. Các liên kết tài liệu và video sẽ được ghi tại trang thông tin này.
+Tôi là Nguyễn Xuân Dương, mã số 26848050. Phạm vi là ba trường cấp chứng từ và năm loại trường dòng hàng. Ảnh cá nhân và video sẽ bổ sung. Chưa có số liệu thực nghiệm.
 
 SLIDE 3
-Hình bên phải trích từ Hình 1 trong bài báo DocILE năm 2023. Các ô tô màu thể hiện chú thích trường thông tin và vị trí trên hóa đơn. Đề tài tập trung đánh giá số hóa đơn, ngày lập và tổng tiền. Phần nhận dạng dòng hàng trong hình nằm ngoài phạm vi nghiên cứu này.
+Hình là một phần Hình 1 của DocILE. Ở cấp chứng từ, đề tài lấy số chứng từ, ngày lập và tổng tiền gồm thuế. Ở dòng hàng, năm loại trường là mô tả, số lượng, đơn vị, đơn giá gồm thuế và thành tiền gồm thuế. Việc đánh giá gồm vị trí trường và nhóm dòng do mô hình dự đoán.
 
 SLIDE 4
-Có ba mục tiêu. Một là xây dựng quy trình đánh giá theo mức độ quen thuộc của bố cục. Hai là đo chênh lệch mô hình và mức suy giảm khi ảnh thay đổi. Ba là phân tích lỗi và đề xuất đầu ra có bằng chứng. Câu hỏi trọng tâm là chất lượng ảnh suy giảm có gây khó khăn lớn hơn trên bố cục chưa gặp hay không.
+Đề tài dùng dữ liệu và baseline DocILE để hỏi ba câu. Câu một: ảnh mờ và giảm độ phân giải ảnh hưởng thế nào tới header và dòng hàng. Câu hai: mức suy giảm có khác giữa nhóm bố cục không mẫu, một đến ba mẫu và từ bốn mẫu hay không. Câu ba: chênh lệch hai mô hình nằm ở gán trường, định vị hay ghép dòng, dưới hai chế độ OCR.
 
 SLIDE 5
-Hình 3 của Huang và cộng sự minh họa kiến trúc và tiền huấn luyện LayoutLMv3. Văn bản OCR, vị trí hai chiều và các mảnh ảnh được đưa vào Transformer đa phương thức. Các đầu ra MLM, MIM và WPA phía trên là mục tiêu tiền huấn luyện của bài báo. Đề cương này đánh giá các checkpoint DocILE đã công bố, giữ nguyên trọng số để dự đoán trường thông tin; RoBERTa chỉ sử dụng văn bản OCR.
+Có ba mục tiêu: quy trình đánh giá chạy lại được, so sánh độ nhạy của hai checkpoint, và phân tích lỗi kèm đầu ra có bằng chứng.
 
 SLIDE 6
-Sơ đồ là thiết kế thực nghiệm đề xuất, chưa có điểm số. Cùng một tài liệu đi qua ảnh gốc, ảnh mờ Gaussian và ảnh giảm độ phân giải. Nhánh A giữ OCR gốc; khi văn bản không đổi, RoBERTa phải cho cùng dự đoán. Nhánh B chạy lại DocTR cố định. Không trộn A và B trong một cặp so sánh. Sau đó đánh giá theo nhóm bố cục không mẫu, một đến ba mẫu, và từ bốn mẫu huấn luyện. Val chính thức là đánh giá mô tả, chưa phải test độc lập.
+Bộ gán trường của RoBERTa đọc văn bản OCR. LayoutLMv3 thêm vị trí và ảnh. Checkpoint tác vụ được đóng băng. Hình trên slide là kiến trúc và tiền huấn luyện, không phải bước suy luận.
 
 SLIDE 7
-Chỉ số chính là AP định vị theo bộ đánh giá DocILE, bổ sung F1 và độ khớp giá trị văn bản. Tôi sẽ tính mức suy giảm so với ảnh gốc trong từng nhóm bố cục và khoảng tin cậy theo cụm. Các phép biến đổi và hậu xử lý được chốt trên dev nội bộ. Vì dùng checkpoint công bố, val được dùng đánh giá mô tả, chưa phải test độc lập. Dữ liệu tiếng Anh chưa cho phép kết luận trực tiếp về hóa đơn tiếng Việt.
+Cùng một tài liệu đi qua ảnh gốc, ảnh mờ và ảnh giảm độ phân giải. Chế độ A giữ nguyên cả chữ và hộp OCR. Chế độ B chạy lại DocTR trên ảnh gốc và ảnh đã biến đổi. Hai chế độ được so sánh riêng. Ghép dòng dùng nhãn NER dự đoán và hình học hộp OCR, với một cấu hình gộp cố định.
 
 SLIDE 8
-Sản phẩm dự kiến gồm quy trình có thể chạy lại, bảng đánh giá và các trường hợp lỗi. Khung bên phải là ví dụ định dạng đầu ra: giá trị, trang, hộp bao và trạng thái cần kiểm tra. Giá trị chỉ để minh họa, không phải kết quả đo. Ghép dòng hàng và đối chiếu ba bên nằm ngoài phạm vi.
+Chỉ số cho header là AP định vị. Chỉ số cho dòng hàng là micro-F1, có tính cả việc gán đúng dòng. Hai chỉ số được báo cáo riêng. Khớp văn bản chỉ là điểm bổ sung. Tập val dùng để mô tả. Dữ liệu là tiếng Anh.
 
 SLIDE 9
-Đề cương sử dụng LayoutLMv3 và DocILE làm nền, với RoDLA trong nghiên cứu liên quan. Xin cảm ơn thầy đã theo dõi.
+Sản phẩm dự kiến gồm quy trình chạy lại và hai bảng chỉ số. Bảng trên slide là ví dụ minh họa: một số chứng từ, một ngày, tổng gồm thuế, và một dòng giấy A4. Đây chưa phải kết quả đo. Mỗi trường sẽ kèm trang, hộp bao và độ tin cậy. Đối chiếu ba bên vẫn để sau.
+
+SLIDE 10
+Đề cương dựa trên LayoutLMv3, DocILE và RoDLA. Xin cảm ơn thầy đã theo dõi.
